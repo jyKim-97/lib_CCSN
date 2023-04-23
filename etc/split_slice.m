@@ -18,10 +18,10 @@ end
 [prefix, tag] = find_tag(fname);
 ftype = fname(end-2:end);
 
-fnames_tmp = ls(fdir);
+fnames_tmp = dir(fdir);
 tags = {};
-for n = 1:size(fnames_tmp, 1)
-    f = deblank(fnames_tmp(n,:));
+for n = 1:length(fnames_tmp)
+    f = deblank(fnames_tmp(n).name);
     if ~contains(f, prefix)
         continue;
     end
@@ -48,9 +48,9 @@ prefix_out = strcat(prefix1, "_", prefix2);
 
 % search the files that contains prefix_out
 max_num = 1;
-fnames_tmp = ls(fdir_out);
-for n = 1:size(fnames_tmp, 1)
-    f = deblank(fnames_tmp(n,:));
+fnames_tmp = dir(fdir_out);
+for n = 1:length(fnames_tmp)
+    f = deblank(fnames_tmp(n).name);
     if ~contains(f, prefix_out)
         continue;
     end
