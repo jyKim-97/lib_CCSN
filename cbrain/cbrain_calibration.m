@@ -89,7 +89,7 @@ Sigma = struct('s1', cell(1, length(chlist)));
 for nch = 1:length(chlist)
     ch = chlist(nch);
     % filter out specfic band 
-    [pd, pd_sym] = get_pd(psd, ff, freq_bands(nch, 1:2), ch);
+    [pd, pd_sym] = get_pd(psd, ff, freq_bands(nch, 1:2), nch);
     
     % Get standard deviation
     Sigma(nch).s1=real(icdf(pd,0.6826)); % 1s
