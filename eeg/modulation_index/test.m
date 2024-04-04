@@ -1,6 +1,4 @@
-% addpath('../bfilt_tools')
-% addpath("./phase-amplitude-coupling/")
-% addpath("eegfilt")
+addpath("../bandpass_signal")
 
 %% make test signal
 srate = 2000;
