@@ -1,4 +1,4 @@
-addpath("../bandpass_signal")
+addpath("../bandpass_filter")
 
 %% make test signal
 srate = 2000;
