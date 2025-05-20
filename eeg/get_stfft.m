@@ -29,12 +29,13 @@ if ~check_stringset(output_type, {'abs', 'complex'})
 end
 
 %% 
-wbin = floor(wbin_t * srate);
+wbin2 = floor(wbin_t * srate / 2);
+wbin = wbin2*2;
 mbin = floor(mbin_t * srate);
 window = hanning(wbin)';
 
 % run FFT
-id_fft = wbin/2:mbin:length(t)-wbin/2; % data points to calculate FFT
+id_fft = wbin2:mbin:length(t)-wbin2; % data points to calculate FFT
 
 sz = size(x);
 if size(sz) < 3
