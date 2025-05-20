@@ -39,11 +39,11 @@ end
 %% 
 xfft = fft(x, num_fft, 2) / num_fft;
 if mod(num_fft, 2) == 0 % even #
-    xfft = xfft(:, 1:num_fft/2+1);
-    xfft(:, 2:end-1) = 2 * xfft(:, 2:end-1);
+    xfft = xfft(:, 1:num_fft/2+1, :);
+    xfft(:, 2:end-1, :) = 2 * xfft(:, 2:end-1, :);
 else
-    xfft = xfft(:, 1:(num_fft+1)/2);
-    xfft(:, 2:end) = 2 * xfft(:, 2:end);
+    xfft = xfft(:, 1:(num_fft+1)/2, :);
+    xfft(:, 2:end, :) = 2 * xfft(:, 2:end, :);
 end
 
 f = fftfreq(srate, num_fft);
